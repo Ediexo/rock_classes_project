@@ -16,10 +16,7 @@ class Rock:
             return True
         
         return False
-    '''
-    honestly don't know what I was tryna do, proabably talk about
-    prehistoric periods, but eh delete it if you can't salvage it
-    '''
+
     def eon(self):
         if self.age != None:
             if self.age > 4,000,000,000:
