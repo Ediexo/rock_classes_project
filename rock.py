@@ -9,6 +9,7 @@ class Rock:
         '''assumming user inputs either igneous, metamorphic or sedimentary'''
         self.type = rockType
         self.age = age
+        self.eon = "unknown'
 
     def mayContainFossils(self):
         if self.type.casefold() == 'sedimentary':
@@ -18,10 +19,18 @@ class Rock:
     '''
     honestly don't know what I was tryna do, proabably talk about
     prehistoric periods, but eh delete it if you can't salvage it
-    
-    def period(self):
-        if self.age
-    
+    '''
+    def eon(self):
+        if self.age != None:
+            if self.age > 4,000,000,000:
+                self.eon = 'Hadean'
+            elif self.age > 2,500,000,000:
+                self.eon = 'Archean'
+            elif self.age > 514,000,000:
+                self.eon = 'Proterozoic'
+            else:
+                self.eon = 'Phanerozoic'
+    '''
     def subType(self):
         if self.type.casefold() == 'igneous':
             print("Extrusive or Intrusive rocks")
@@ -39,13 +48,19 @@ class Igneous(Rock):
         super.__init__('igneous', age)
         self.subTypes = ['Extrusive', 'Intrusive']
         
+    self.eon = super.eon(self)
+        
+        
 class Sedimentary(Rock):
     def __init__(self, age=None):
         super.__init__('sedimentary', age)
         self.subTypes = ['Organic', 'Clastic', 'Chemical']
         
+    self.eon = super.eon(self)
+        
 class Metamorphic(Rock):
     def __init__(self, age=None):
         super.__init__('metamorphic', age)
         self.subTypes = ['Foliated', 'Unfoliated']
-    
+        
+    self.eon = super.eon(self)
